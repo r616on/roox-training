@@ -1,31 +1,26 @@
-import { createStore, compose,combineReducers, applyMiddleware } from 'redux';
-import createSagaMiddleware from '@redux-saga/core';
-import rootSaga from './sagas';
-
+import { createStore, compose, combineReducers, applyMiddleware } from "redux";
+import createSagaMiddleware from "@redux-saga/core";
+import rootSaga from "./sagas";
+import itemsList from "../components/organisms/ItemsList/effects/reducer";
 
 const composeEnhancers =
-  typeof window === 'object' &&
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
-        window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
-
-
-const test = (state = {}, action) => {
-  return state;
-}
+  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+    : compose;
 
 const reducer = combineReducers({
-  test,
+  itemsList,
 });
- 
-const sagaMiddlewatre =createSagaMiddleware()
 
-const configureStore = preloadedState => createStore(
-  reducer,
-  preloadedState,
-  composeEnhancers(applyMiddleware(sagaMiddlewatre)),
-);
+const sagaMiddlewatre = createSagaMiddleware();
+
+const configureStore = (preloadedState) =>
+  createStore(
+    reducer,
+    preloadedState,
+    composeEnhancers(applyMiddleware(sagaMiddlewatre))
+  );
 
 const store = configureStore({});
-sagaMiddlewatre.run(rootSaga)
 
 export default store;

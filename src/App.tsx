@@ -1,8 +1,9 @@
 import React from "react";
 import "./App.css";
+import Index from "./components/page/Index/Index";
 
 function App() {
-  return <h1> Hello world!</h1>;
+  return <Index />;
 }
 
 export default App;
