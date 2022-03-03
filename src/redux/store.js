@@ -1,7 +1,9 @@
 import { createStore, compose, combineReducers, applyMiddleware } from "redux";
 import createSagaMiddleware from "@redux-saga/core";
-import rootSaga from "../components/organisms/ItemsList/effects/sagas";
-import itemsList from "../components/organisms/ItemsList/effects/reducer";
+import {
+  ItemsListSaga,
+  itemsList,
+} from "../components/organisms/ItemsList/effects";
 
 const composeEnhancers =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
@@ -11,6 +13,10 @@ const composeEnhancers =
 const reducer = combineReducers({
   itemsList,
 });
+
+function* rootSaga() {
+  yield ItemsListSaga();
+}
 
 const sagaMiddleware = createSagaMiddleware();
 

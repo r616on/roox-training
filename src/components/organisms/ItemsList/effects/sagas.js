@@ -1,4 +1,4 @@
-import { put, call, takeEvery, all, select, delay } from "redux-saga/effects";
+import { put, call, takeEvery, delay } from "redux-saga/effects";
 import { GET_ITEMS } from "./actionTypes";
 import { getItems } from "../../../../api/index";
 import { setItems, setRequestStatus } from "./actionCreators";
@@ -20,6 +20,6 @@ export function* watchSaga() {
   yield takeEvery(GET_ITEMS, handelItems);
 }
 
-export default function* rootSaga() {
+export default function* ItemsListSaga() {
   yield watchSaga();
 }
