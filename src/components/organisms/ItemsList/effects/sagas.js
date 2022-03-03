@@ -1,40 +1,25 @@
-import { put, call, takeEvery, all, select } from "redux-saga/effects";
+import { put, call, takeEvery, all, select, delay } from "redux-saga/effects";
+import { GET_ITEMS } from "./actionTypes";
+import { getItems } from "../../../../api/index";
+import { setItems, setRequestStatus } from "./actionCreators";
+import requestStatuses from "../../../../utils/requestStatuses";
 
-// const HANDLERS = {
+export function* handelItems() {
+  try {
+    yield put(setRequestStatus(requestStatuses.loading));
+    yield delay(1000);
+    const items = yield call(getItems);
+    yield put(setItems(items.results));
+    yield put(setRequestStatus(requestStatuses.ok));
+  } catch {
+    yield put(setRequestStatus(requestStatuses.setError));
+  }
+}
 
-//   *[getAccRequestInfo]() {
-//     try {
-//       const { currentOrgId } = yield select((state) => state.auth.data);
-//       const {
-//         data: { content },
-//       } = yield call(mdmApi.adapter, {
-//         method: POST,
-//         // eslint-disable-next-line max-len
-//         url: `${API_URL_V1}${CATALOGS}/partner_accreditations/items/search`,
-//         headers,
-//         params: {
-//           size: 400,
-//           showRefs: 1,
-//           showeDetails: 1,
-//           hideDepricated: true,
-//         },
-//         data: { and: [{ and: [{ and: [{ partner: currentOrgId }] }] }] },
-//       });
-//       yield put(getAccRequestInfoSuccess(content));
-//     } catch (err) {
-//       yield put(getAccRequestInfoFailure(err));
-//     }
-//   },
-
-// };
-
-export function* workerSaga() {}
-
-export function* watchClickSaga() {
-  console.log("hell sagas");
-  yield;
+export function* watchSaga() {
+  yield takeEvery(GET_ITEMS, handelItems);
 }
 
 export default function* rootSaga() {
-  yield watchClickSaga();
+  yield watchSaga();
 }

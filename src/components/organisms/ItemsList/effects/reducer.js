@@ -14,7 +14,10 @@ export default function itemsList(state = initialState, action) {
     case SET_ITEMS:
       return { ...state, items: action.payload };
     case SET_REQUESTSTATUS:
-      return { ...state, requestStatus: action.payload };
+      return {
+        ...state,
+        requestStatus: { ...action.payload },
+      };
     default:
       return state;
   }

@@ -1,26 +1,30 @@
 import React, { useEffect } from "react";
 import ItemCart from "../../molecules/ItemCart/ItemCart";
 import { useSelector, useDispatch } from "react-redux";
-import { setItems } from "./effects/actionCreators";
+import { Spin, message } from "antd";
+import { getItems } from "./effects/actionCreators";
 import "./style.scss";
 import { Space } from "antd";
 
 function ItemsList() {
   const items = useSelector((state) => state.itemsList.items);
+  const { loading, ok, error } = useSelector(
+    (state) => state.itemsList.requestStatus
+  );
   const dispatch = useDispatch();
   useEffect(() => {
-    fetch("https://swapi.dev/api/people/")
-      .then((response) => response.json())
-      .then((items) => {
-        dispatch(setItems(items.results));
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    dispatch(getItems());
   }, []);
+
+  useEffect(() => {
+    error && message.error("Ошибка загрузки данных");
+  }, [error]);
+
   return (
-    <Space wrap style={{ justifyContent: "center" }}>
-      {items.length > 0 &&
+    <Space wrap style={{ justifyContent: "center", width: "100%" }}>
+      {loading && <Spin size="large" tip="Loading..."></Spin>}
+
+      {ok &&
         items.map((item) => {
           return <ItemCart key={item.name} item={item} />;
         })}

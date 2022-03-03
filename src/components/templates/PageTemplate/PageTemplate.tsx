@@ -13,13 +13,11 @@ function PageTemplate() {
         <div className="logo"></div>
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
           <Menu.Item key="1">Перонажи из SW</Menu.Item>
-          <Menu.Item key="2">nav 2</Menu.Item>
-          <Menu.Item key="3">nav 3</Menu.Item>
         </Menu>
       </Header>
       <Content
         className="site-layout"
-        style={{ padding: "0 50px", marginTop: 64 }}
+        style={{ padding: "0 50px", marginTop: 64, minHeight: "100%" }}
       >
         {/* <Breadcrumb style={{ margin: "16px 0" }}>
           <Breadcrumb.Item>Home</Breadcrumb.Item>
@@ -29,13 +27,13 @@ function PageTemplate() {
         <Row
           justify="space-between"
           className="site-layout-background"
-          style={{ padding: 24, minHeight: 380 }}
+          style={{ padding: 24, minHeight: "100%" }}
         >
           <ItemsList />
         </Row>
       </Content>
       <Footer style={{ textAlign: "center" }}>
-        Ant Design ©2018 Created by Ant UED
+        Ant Design ©2022 Created by Ant UED
       </Footer>
     </Layout>
   );
