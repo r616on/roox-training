@@ -15,7 +15,7 @@ const ItemsList: FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getItems());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     error && message.error("Ошибка загрузки данных");
