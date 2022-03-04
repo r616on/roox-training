@@ -1,10 +1,5 @@
 import { SET_ITEMS, SET_REQUESTSTATUS } from "./actionTypes";
-
-export type RequestStatusType = {
-  loading: boolean;
-  ok: boolean;
-  error: boolean;
-};
+import { RequestStatusType } from "../../../../utils/requestStatuses";
 
 type initialStateType = {
   items: {};

@@ -1,4 +1,17 @@
-const requestStatuses = {
+export type RequestStatusType = {
+  loading: boolean;
+  ok: boolean;
+  error: boolean;
+};
+
+export type RequestStatusesType = {
+  init: RequestStatusType;
+  loading: RequestStatusType;
+  ok: RequestStatusType;
+  setError: RequestStatusType;
+};
+
+const requestStatuses: RequestStatusesType = {
   init: {
     loading: false,
     ok: false,

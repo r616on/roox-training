@@ -4,11 +4,11 @@ import { getItems } from "../../../../api/index";
 import { setItems, setRequestStatus } from "./actionCreators";
 import requestStatuses from "../../../../utils/requestStatuses";
 
-export function* handelItems() {
+export function* handelItems(): Generator {
   try {
     yield put(setRequestStatus(requestStatuses.loading));
     yield delay(1000);
-    const items = yield call(getItems);
+    const items: any = yield call(getItems);
     yield put(setItems(items.results));
     yield put(setRequestStatus(requestStatuses.ok));
   } catch {
@@ -16,10 +16,10 @@ export function* handelItems() {
   }
 }
 
-export function* watchSaga() {
+export function* watchSaga(): Generator {
   yield takeEvery(GET_ITEMS, handelItems);
 }
 
-export default function* ItemsListSaga() {
+export default function* ItemsListSaga(): Generator {
   yield watchSaga();
 }

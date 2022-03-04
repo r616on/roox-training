@@ -2,7 +2,18 @@ import React from "react";
 import "./style.scss";
 import { Card } from "antd";
 
-function ItemCart({ item }) {
+export type itemType = {
+  name: string;
+  height: number;
+  mass: number;
+  hair_color: string;
+  skin_color: string;
+  eye_color: string;
+  birth_year: number;
+  gender: string;
+};
+
+const ItemCart = (props: { item: itemType }) => {
   const {
     name,
     height,
@@ -12,8 +23,7 @@ function ItemCart({ item }) {
     eye_color,
     birth_year,
     gender,
-    homeworld,
-  } = item;
+  } = props.item;
   return (
     <Card title={`Имя: ${name}`} style={{ width: 250 }}>
       <ul>
@@ -27,6 +37,6 @@ function ItemCart({ item }) {
       </ul>
     </Card>
   );
-}
+};
 
 export default ItemCart;

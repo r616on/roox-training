@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import PageTemplate from "../../templates/PageTemplate/PageTemplate";
 import "./style.scss";
 
-function Index() {
+const Index: FC = () => {
   return <PageTemplate></PageTemplate>;
-}
+};
 
 export default Index;

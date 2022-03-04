@@ -1,18 +1,17 @@
-import React, { Fragment } from "react";
+import React, { FC } from "react";
 import "antd/dist/antd.css";
-import { Layout, Menu, Breadcrumb, Row } from "antd";
+import { Layout, Menu, Row } from "antd";
 import ItemsList from "../../organisms/ItemsList/ItemsList";
 import "./style.scss";
 const { Header, Content, Footer } = Layout;
 
-function PageTemplate() {
-  const { SubMenu } = Menu;
+const PageTemplate: FC = () => {
   return (
     <Layout>
       <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
         <div className="logo"></div>
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
-          <Menu.Item key="1">Перонажи из SW</Menu.Item>
+          <Menu.Item key="1">Перcонажи из SW</Menu.Item>
         </Menu>
       </Header>
       <Content
@@ -37,6 +36,6 @@ function PageTemplate() {
       </Footer>
     </Layout>
   );
-}
+};
 
 export default PageTemplate;

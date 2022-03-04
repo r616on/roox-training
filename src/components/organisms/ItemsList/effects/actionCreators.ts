@@ -1,5 +1,5 @@
 import { SET_ITEMS, GET_ITEMS, SET_REQUESTSTATUS } from "./actionTypes";
-import { RequestStatusType } from "./reducer";
+import { RequestStatusType } from "../../../../utils/requestStatuses";
 
 type GetItemsType = {
   type: typeof GET_ITEMS;
