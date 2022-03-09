@@ -1,11 +1,13 @@
 import React, { useEffect, FC } from "react";
 import ItemCart from "../../molecules/ItemCart/ItemCart";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { Spin, message } from "antd";
 import { itemType } from "../../molecules/ItemCart/ItemCart";
 import { getItems } from "./effects/actionCreators";
 import "./style.scss";
 import { Space } from "antd";
+import PageTemplate from "../../templates/PageTemplate/PageTemplate";
 
 const ItemsList: FC = () => {
   const items = useSelector((state: any) => state.itemsList.items);
@@ -20,16 +22,27 @@ const ItemsList: FC = () => {
   useEffect(() => {
     error && message.error("Ошибка загрузки данных");
   }, [error]);
+  const ejectId = (str: string | undefined) => {
+    return (
+      str && str.replace("https://swapi.dev/api/people/", "").replace("/", "")
+    );
+  };
 
   return (
-    <Space wrap style={{ justifyContent: "center", width: "100%" }}>
-      {loading && <Spin size="large" tip="Loading..."></Spin>}
+    <PageTemplate>
+      <Space wrap style={{ justifyContent: "center", width: "100%" }}>
+        {loading && <Spin size="large" tip="Loading..."></Spin>}
 
-      {ok &&
-        items.map((item: itemType) => {
-          return <ItemCart key={item.name} item={item} />;
-        })}
-    </Space>
+        {ok &&
+          items.map((item: itemType) => {
+            return (
+              <Link to={`/people/${ejectId(item.url)}`} key={item.name}>
+                <ItemCart item={item} />
+              </Link>
+            );
+          })}
+      </Space>
+    </PageTemplate>
   );
 };
 

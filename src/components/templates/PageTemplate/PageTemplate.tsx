@@ -3,15 +3,20 @@ import "antd/dist/antd.css";
 import { Layout, Menu, Row } from "antd";
 import ItemsList from "../../organisms/ItemsList/ItemsList";
 import "./style.scss";
+import { Link } from "react-router-dom";
 const { Header, Content, Footer } = Layout;
 
-const PageTemplate: FC = () => {
+const PageTemplate: FC = (props) => {
   return (
     <Layout>
       <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
-        <div className="logo"></div>
+        <Link to="/">
+          <div className="logo"></div>
+        </Link>
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
-          <Menu.Item key="1">Перcонажи из SW</Menu.Item>
+          <Link to="/peopleList/">
+            <Menu.Item>Перcонажи из SW</Menu.Item>
+          </Link>
         </Menu>
       </Header>
       <Content
@@ -28,7 +33,7 @@ const PageTemplate: FC = () => {
           className="site-layout-background"
           style={{ padding: 24, minHeight: "100%" }}
         >
-          <ItemsList />
+          {props.children}
         </Row>
       </Content>
       <Footer style={{ textAlign: "center" }}>
