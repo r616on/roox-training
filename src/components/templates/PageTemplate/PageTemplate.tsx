@@ -10,13 +10,12 @@ const PageTemplate: FC = (props) => {
   return (
     <Layout>
       <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
-        <Link to="/">
-          <div className="logo"></div>
-        </Link>
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
-          <Link to="/peopleList/">
-            <Menu.Item>Перcонажи из SW</Menu.Item>
-          </Link>
+        <Link to="/" className="logo"></Link>
+
+        <Menu theme="dark" mode="horizontal">
+          <Menu.Item key="1">
+            <Link to="/peopleList/">Перcонажи из SW </Link>
+          </Menu.Item>
         </Menu>
       </Header>
       <Content

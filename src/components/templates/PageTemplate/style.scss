@@ -15,14 +15,14 @@
   height: 100%;
 }
 .logo {
-  height: 53px;
-  background: none;
-  background-image: url("../../../img/logo.jpg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin: 0;
-  margin-right: 15px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border-radius: 20px;
+  height: 53px !important;
+  background: none !important;
+  background-image: url("../../../img/logo.jpg") !important;
+  background-repeat: no-repeat !important;
+  background-size: contain !important;
+  margin: 0 !important;
+  margin-right: 15px !important;
+  margin-top: 5px !important;
+  margin-bottom: 5px !important;
+  border-radius: 20px !important;
 }
