@@ -26,3 +26,35 @@
   margin-bottom: 5px !important;
   border-radius: 20px !important;
 }
+.Layout {
+  height: 100%;
+  flex-direction: column;
+}
+.Header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
+.NavLink {
+  color: #fff;
+  padding-left: 7px;
+  padding-right: 7px;
+  border-radius: 5px;
+  &.active {
+    background-color: #1890ff;
+  }
+}
+.site-layout {
+  flex: 0 1 auto;
+  padding: 0 50px;
+  margin-top: 74px;
+  min-height: 100%;
+}
+.site-layout-background {
+  padding: 14px;
+  min-height: 100%;
+}
+.Footer {
+  margin-top: 10px;
+  text-align: center;
+}

@@ -3,7 +3,7 @@ import ItemCart from "../../molecules/ItemCart/ItemCart";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Spin, message } from "antd";
-import { itemType } from "../../molecules/ItemCart/ItemCart";
+import { IItemCart } from "../../molecules/ItemCart/interface";
 import { getItems } from "./effects/actionCreators";
 import "./style.scss";
 import { Space } from "antd";
@@ -34,10 +34,10 @@ const ItemsList: FC = () => {
         {loading && <Spin size="large" tip="Loading..."></Spin>}
 
         {ok &&
-          items.map((item: itemType) => {
+          items.map((item: IItemCart) => {
             return (
               <Link to={`/people/${ejectId(item.url)}`} key={item.name}>
-                <ItemCart item={item} />
+                <ItemCart {...item} />
               </Link>
             );
           })}

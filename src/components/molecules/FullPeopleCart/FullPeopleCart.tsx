@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setId, getFullPeopleItem } from "./effects/actionCreators";
-import "./style.scss";
-import { Descriptions, Spin, message, Space } from "antd";
+import { Descriptions, Spin, message, Space, Row, Button, Col } from "antd";
 import PageTemplate from "../../templates/PageTemplate/PageTemplate";
 import { Typography } from "antd";
+import "./style.scss";
 
 export type itemType = {
   name: string;
@@ -36,11 +36,21 @@ const FullPeopleCart = () => {
 
   return (
     <PageTemplate>
-      <Space wrap style={{ justifyContent: "center", width: "100%" }}>
+      <Row wrap className="CustomsContainerCenter">
         {loading && <Spin size="large" tip="Loading..."></Spin>}
         {ok && (
           <>
-            <Title>{item.name}</Title>
+            <Row align="middle" className="CustomsContainer">
+              <Col span={12}>
+                <Title>{item.name}</Title>
+              </Col>
+              <Col span={2}>
+                <Link to="/peopleList/">
+                  <Button type="primary">Назат</Button>
+                </Link>
+              </Col>
+            </Row>
+
             <Descriptions bordered column={{ xs: 1, sm: 1, md: 1, lg: 2 }}>
               <Descriptions.Item label="Рост">{item.height}</Descriptions.Item>
               <Descriptions.Item label="Вес">{item.mass}</Descriptions.Item>
@@ -72,7 +82,7 @@ const FullPeopleCart = () => {
             </Descriptions>
           </>
         )}
-      </Space>
+      </Row>
     </PageTemplate>
   );
 };

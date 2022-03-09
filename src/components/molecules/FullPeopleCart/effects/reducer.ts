@@ -1,9 +1,9 @@
 import { SET_FULLPEOPLE_ITEM, SET_REQUESTSTATUS, SET_ID } from "./actionTypes";
 import { RequestStatusType } from "../../../../utils/requestStatuses";
-import { itemType } from "../../ItemCart/ItemCart";
+import { IItemCart } from "../../ItemCart/interface";
 
 type initialStateType = {
-  item: itemType;
+  item: IItemCart;
   id: string;
   requestStatus: RequestStatusType;
 };
