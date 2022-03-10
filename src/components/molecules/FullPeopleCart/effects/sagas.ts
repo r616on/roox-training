@@ -1,15 +1,18 @@
 import { put, call, takeEvery, delay, select } from "redux-saga/effects";
 import { GET_FULLPEOPLE_ITEM } from "./actionTypes";
-import { getFullPeole } from "../../../../api/index";
+import { AppAPI } from "../../../../api/index";
 import { setFullPeopleItem, setRequestStatus } from "./actionCreators";
 import requestStatuses from "../../../../utils/requestStatuses";
+import { AppStoreType } from "../../../../redux/interfaces";
 
 export function* handelSaga() {
   try {
-    const { id } = yield select((state) => state.FullPeople);
+    const id: string = yield select(
+      (state: AppStoreType) => state.FullPeople.id
+    );
     yield put(setRequestStatus(requestStatuses.loading));
-    yield delay(1000);
-    const fullPeople = yield call(getFullPeole, id);
+    yield delay(200);
+    const fullPeople: {} = yield call(AppAPI.getFullPeole, id);
     yield put(setFullPeopleItem(fullPeople));
     yield put(setRequestStatus(requestStatuses.ok));
   } catch {

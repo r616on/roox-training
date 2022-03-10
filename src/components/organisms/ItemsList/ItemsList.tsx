@@ -2,17 +2,17 @@ import React, { useEffect, FC } from "react";
 import ItemCart from "../../molecules/ItemCart/ItemCart";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { Spin, message } from "antd";
-import { IItemCart } from "../../molecules/ItemCart/interface";
+import { Spin, message, Space } from "antd";
 import { getItems } from "./effects/actionCreators";
 import "./style.scss";
-import { Space } from "antd";
 import PageTemplate from "../../templates/PageTemplate/PageTemplate";
+import { IItemCart } from "../../molecules/ItemCart/interfaces";
+import { AppStoreType } from "../../../redux/interfaces";
 
 const ItemsList: FC = () => {
-  const items = useSelector((state: any) => state.itemsList.items);
+  const items = useSelector((state: AppStoreType) => state.itemsList.items);
   const { loading, ok, error } = useSelector(
-    (state: any) => state.itemsList.requestStatus
+    (state: AppStoreType) => state.itemsList.requestStatus
   );
   const dispatch = useDispatch();
   useEffect(() => {

@@ -1,15 +1,15 @@
 import { put, call, takeEvery, delay } from "redux-saga/effects";
 import { GET_ITEMS } from "./actionTypes";
-import { getItems } from "../../../../api/index";
+import { AppAPI } from "../../../../api/index";
 import { setItems, setRequestStatus } from "./actionCreators";
 import requestStatuses from "../../../../utils/requestStatuses";
 
 export function* handelItems(): Generator {
   try {
     yield put(setRequestStatus(requestStatuses.loading));
-    yield delay(1000);
-    const items: any = yield call(getItems);
-    yield put(setItems(items.results));
+    yield delay(200);
+    const items: any = yield call(AppAPI.getItems);
+    yield put(setItems(items));
     yield put(setRequestStatus(requestStatuses.ok));
   } catch {
     yield put(setRequestStatus(requestStatuses.setError));

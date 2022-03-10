@@ -1,9 +1,15 @@
 import React from "react";
 import "./style.scss";
 import { Card } from "antd";
-import { IItemCart } from "./interface";
+import { IItemCart } from "./interfaces";
 
-const ItemCart = ({ name, height, mass, birth_year, gender }: IItemCart) => (
+const ItemCart: React.FC<IItemCart> = ({
+  name,
+  height,
+  mass,
+  birth_year,
+  gender,
+}) => (
   <Card title={`Имя: ${name}`} style={{ width: 250 }}>
     <ul>
       <li className="card_item">{`Рост: ${height}`}</li>

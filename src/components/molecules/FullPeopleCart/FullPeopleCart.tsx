@@ -2,30 +2,28 @@ import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setId, getFullPeopleItem } from "./effects/actionCreators";
-import { Descriptions, Spin, message, Space, Row, Button, Col } from "antd";
+import {
+  Descriptions,
+  Spin,
+  message,
+  Row,
+  Button,
+  Col,
+  Typography,
+} from "antd";
 import PageTemplate from "../../templates/PageTemplate/PageTemplate";
-import { Typography } from "antd";
 import "./style.scss";
+import { AppStoreType } from "../../../redux/interfaces";
 
-export type itemType = {
-  name: string;
-  height: number;
-  mass: number;
-  hair_color: string;
-  skin_color: string;
-  eye_color: string;
-  birth_year: number;
-  gender: string;
-};
-
-const FullPeopleCart = () => {
+const FullPeopleCart: React.FC = () => {
   const params: any = useParams();
   const dispatch = useDispatch();
-  const { item } = useSelector((state: any) => state.FullPeople);
+  const { item } = useSelector((state: AppStoreType) => state.FullPeople);
   const { loading, ok, error } = useSelector(
-    (state: any) => state.FullPeople.requestStatus
+    (state: AppStoreType) => state.FullPeople.requestStatus
   );
   const { Title } = Typography;
+
   useEffect(() => {
     dispatch(setId(params.id));
     dispatch(getFullPeopleItem());

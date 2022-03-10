@@ -1,8 +1,14 @@
-export const getItems = async () => {
-  const res = await fetch("https://swapi.dev/api/people/");
-  return await res.json();
-};
-export const getFullPeole = async (id: string) => {
-  const res = await fetch(`https://swapi.dev/api/people/${id}/`);
-  return await res.json();
+import axios from "axios";
+
+const instanse = axios.create({
+  baseURL: "https://swapi.dev/",
+});
+
+export const AppAPI = {
+  getItems() {
+    return instanse.get("api/people/").then((res) => res.data.results);
+  },
+  getFullPeole(id: string) {
+    return instanse.get(`api/people/${id}/`).then((res) => res.data);
+  },
 };

@@ -9,32 +9,31 @@ import {
   FullPeopleSaga,
   FullPeople,
 } from "../components/molecules/FullPeopleCart/effects/index";
+import { AppStoreType } from "./interfaces";
 
 const composeEnhancers =
+  //@ts-ignore
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+    ? //@ts-ignore
+      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
     : compose;
 
-const reducer = combineReducers({
+export const rootReducer = combineReducers({
   itemsList,
   FullPeople,
 });
 
-function* rootSaga() {
+function* rootSaga(): Generator {
   yield fork(ItemsListSaga);
   yield fork(FullPeopleSaga);
 }
 
 const sagaMiddleware = createSagaMiddleware();
 
-const configureStore = (preloadedState) =>
-  createStore(
-    reducer,
-    preloadedState,
-    composeEnhancers(applyMiddleware(sagaMiddleware))
-  );
+const configureStore = () =>
+  createStore(rootReducer, composeEnhancers(applyMiddleware(sagaMiddleware)));
 
-const store = configureStore({});
+const store = configureStore();
 
 sagaMiddleware.run(rootSaga);
 export default store;

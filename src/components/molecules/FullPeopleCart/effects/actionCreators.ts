@@ -21,6 +21,11 @@ type SetRequestStatusType = {
   type: typeof SET_REQUESTSTATUS;
   payload: RequestStatusType;
 };
+export type ActionTypes =
+  | GetItemsType
+  | SetItemsType
+  | SetIdType
+  | SetRequestStatusType;
 
 export function getFullPeopleItem(): GetItemsType {
   return { type: GET_FULLPEOPLE_ITEM };

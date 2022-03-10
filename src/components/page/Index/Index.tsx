@@ -9,7 +9,7 @@ const Index: FC = () => {
   return (
     <PageTemplate>
       <Row justify="space-between">
-        <Col span={13}>
+        <Col span={12}>
           <Image className="index-img" src={img} alt="Image" />
         </Col>
         <Col span={10}>
