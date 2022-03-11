@@ -1,27 +1,16 @@
 import { SET_ITEMS, GET_ITEMS, SET_REQUESTSTATUS } from "./actionTypes";
 import { RequestStatusType } from "../../../../utils/requestStatuses";
+import {IgetItems, IsetItems, IsetRequestStatus} from "../interfaces";
 
-type GetItemsType = {
-  type: typeof GET_ITEMS;
-};
-type SetItemsType = {
-  type: typeof SET_ITEMS;
-  payload: [];
-};
-type SetRequestStatusType = {
-  type: typeof SET_REQUESTSTATUS;
-  payload: RequestStatusType;
-};
-export type ActionTypes = GetItemsType | SetItemsType | SetRequestStatusType;
 
-export function getItems(): GetItemsType {
+export function getItems(): IgetItems {
   return { type: GET_ITEMS };
 }
-export function setItems(items: []): SetItemsType {
+export function setItems(items: []): IsetItems {
   return { type: SET_ITEMS, payload: items };
 }
 export function setRequestStatus(
   status: RequestStatusType
-): SetRequestStatusType {
+): IsetRequestStatus {
   return { type: SET_REQUESTSTATUS, payload: status };
 }

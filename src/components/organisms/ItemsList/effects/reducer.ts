@@ -1,13 +1,7 @@
 import { SET_ITEMS, SET_REQUESTSTATUS } from "./actionTypes";
-import { RequestStatusType } from "../../../../utils/requestStatuses";
-import { ActionTypes } from "./actionCreators";
+import { ActionTypes, IinitialState } from "../interfaces";
 
-type initialStateType = {
-  items: [];
-  requestStatus: RequestStatusType;
-};
-
-const initialState: initialStateType = {
+const initialState: IinitialState = {
   items: [],
   requestStatus: {
     loading: false,
@@ -19,7 +13,7 @@ const initialState: initialStateType = {
 export default function itemsList(
   state = initialState,
   action: ActionTypes
-): initialStateType {
+): IinitialState {
   switch (action.type) {
     case SET_ITEMS:
       return { ...state, items: action.payload };

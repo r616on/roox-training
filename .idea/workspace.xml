@@ -6,8 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="ed9846ed-b4ac-44d9-9df2-8239ee22894a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/molecules/ItemCart/ItemCart.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/ItemCart/ItemCart.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/organisms/ItemsList/ItemsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/organisms/ItemsList/ItemsList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/molecules/FullPeopleCart/effects/actionCreators.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/FullPeopleCart/effects/actionCreators.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/molecules/FullPeopleCart/effects/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/molecules/FullPeopleCart/effects/reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/organisms/ItemsList/effects/actionCreators.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/organisms/ItemsList/effects/actionCreators.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/organisms/ItemsList/effects/reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/organisms/ItemsList/effects/reducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,10 +39,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/organisms/ItemsList" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -49,6 +52,11 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="ts.external.directory.path" value="D:\Roox\roox-training\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Roox\roox-training\src\components\organisms\ItemsList" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
@@ -77,6 +85,7 @@
       <updated>1646388041703</updated>
       <workItem from="1646388044320" duration="40000" />
       <workItem from="1646894137562" duration="1256000" />
+      <workItem from="1646978335130" duration="1538000" />
     </task>
     <servers />
   </component>

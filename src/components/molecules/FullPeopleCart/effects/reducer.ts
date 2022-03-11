@@ -1,15 +1,7 @@
 import { SET_FULLPEOPLE_ITEM, SET_REQUESTSTATUS, SET_ID } from "./actionTypes";
-import { RequestStatusType } from "../../../../utils/requestStatuses";
-import { IItemCart } from "../../ItemCart/interfaces";
-import { ActionTypes } from "./actionCreators";
+import { ActionTypes, IinitialState } from "../interfaces";
 
-type initialStateType = {
-  item: IItemCart;
-  id: string | undefined;
-  requestStatus: RequestStatusType;
-};
-
-const initialState: initialStateType = {
+const initialState: IinitialState = {
   item: {},
   id: "",
   requestStatus: {
@@ -22,7 +14,7 @@ const initialState: initialStateType = {
 export default function FullPeople(
   state = initialState,
   action: ActionTypes
-): initialStateType {
+): IinitialState {
   switch (action.type) {
     case SET_FULLPEOPLE_ITEM:
       return { ...state, item: action.payload };

@@ -5,39 +5,17 @@ import {
   SET_ID,
 } from "./actionTypes";
 import { RequestStatusType } from "../../../../utils/requestStatuses";
+import { IGetItems, ISetId, ISetItems, ISetRequestStatus } from "../interfaces";
 
-type GetItemsType = {
-  type: typeof GET_FULLPEOPLE_ITEM;
-};
-type SetItemsType = {
-  type: typeof SET_FULLPEOPLE_ITEM;
-  payload: {};
-};
-type SetIdType = {
-  type: typeof SET_ID;
-  payload: string | undefined;
-};
-type SetRequestStatusType = {
-  type: typeof SET_REQUESTSTATUS;
-  payload: RequestStatusType;
-};
-export type ActionTypes =
-  | GetItemsType
-  | SetItemsType
-  | SetIdType
-  | SetRequestStatusType;
-
-export function getFullPeopleItem(): GetItemsType {
+export function getFullPeopleItem(): IGetItems {
   return { type: GET_FULLPEOPLE_ITEM };
 }
-export function setFullPeopleItem(items: {}): SetItemsType {
+export function setFullPeopleItem(items: {}): ISetItems {
   return { type: SET_FULLPEOPLE_ITEM, payload: items };
 }
-export function setId(id: string): SetIdType {
+export function setId(id: string): ISetId {
   return { type: SET_ID, payload: id };
 }
-export function setRequestStatus(
-  status: RequestStatusType
-): SetRequestStatusType {
+export function setRequestStatus(status: RequestStatusType): ISetRequestStatus {
   return { type: SET_REQUESTSTATUS, payload: status };
 }
