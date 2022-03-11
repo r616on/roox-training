@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "antd/dist/antd.css";
-import { Layout, Menu, Row } from "antd";
+import { Layout, Row } from "antd";
 import "./style.scss";
 import { NavLink, Link } from "react-router-dom";
 const { Header, Content, Footer } = Layout;

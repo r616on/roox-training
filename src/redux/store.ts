@@ -9,7 +9,6 @@ import {
   FullPeopleSaga,
   FullPeople,
 } from "../components/molecules/FullPeopleCart/effects/index";
-import { AppStoreType } from "./interfaces";
 
 const composeEnhancers =
   //@ts-ignore
