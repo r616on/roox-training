@@ -1,4 +1,5 @@
-import { createStore, compose, combineReducers, applyMiddleware } from "redux";
+// import { compose } from "redux";
+import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import { fork } from "redux-saga/effects";
 import createSagaMiddleware from "@redux-saga/core";
 import {
@@ -10,12 +11,12 @@ import {
   FullPeople,
 } from "../components/molecules/FullPeopleCart/effects/index";
 
-const composeEnhancers =
-  //@ts-ignore
-  typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? //@ts-ignore
-      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
-    : compose;
+// const composeEnhancers =
+//   //@ts-ignore
+//   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+//     ? //@ts-ignore
+//       window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
+//     : compose;
 
 export const rootReducer = combineReducers({
   itemsList,
@@ -29,10 +30,11 @@ function* rootSaga(): Generator {
 
 const sagaMiddleware = createSagaMiddleware();
 
-const configureStore = () =>
-  createStore(rootReducer, composeEnhancers(applyMiddleware(sagaMiddleware)));
-
-const store = configureStore();
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(sagaMiddleware),
+});
 
 sagaMiddleware.run(rootSaga);
 export default store;
