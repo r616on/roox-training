@@ -9,7 +9,7 @@ import { ActionTypes, IinitialState } from "../interfaces";
 const initialState: IinitialState = {
   items: [],
   page: 1,
-  total: 2,
+  total: 1,
   requestStatus: {
     loading: false,
     ok: false,

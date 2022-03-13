@@ -10,6 +10,10 @@ import {
   FullPeopleSaga,
   FullPeople,
 } from "../components/molecules/FullPeopleCart/effects/index";
+import {
+  PlanetsList,
+  PlanetsListSaga,
+} from "../components/organisms/PlanetsList/effects";
 
 // const composeEnhancers =
 //   //@ts-ignore
@@ -21,11 +25,13 @@ import {
 export const rootReducer = combineReducers({
   itemsList,
   FullPeople,
+  PlanetsList,
 });
 
 function* rootSaga(): Generator {
   yield fork(ItemsListSaga);
   yield fork(FullPeopleSaga);
+  yield fork(PlanetsListSaga);
 }
 
 const sagaMiddleware = createSagaMiddleware();

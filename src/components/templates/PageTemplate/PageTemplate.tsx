@@ -14,6 +14,9 @@ const PageTemplate: FC = (props) => {
           <NavLink to="/peopleList/" className={"NavLink"}>
             Перcонажи из SW
           </NavLink>
+          <NavLink to="/planets/" className={"NavLink"}>
+            Планеты из SW
+          </NavLink>
         </Row>
       </Header>
       <Content className="site-layout">

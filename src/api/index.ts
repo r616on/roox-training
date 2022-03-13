@@ -17,4 +17,13 @@ export const AppAPI = {
   getFullPeole(id: string) {
     return instanse.get(`api/people/${id}/`).then((res) => res.data);
   },
+  getPlanets(page: number) {
+    return instanse
+      .get("api/planets/", {
+        params: {
+          page: page,
+        },
+      })
+      .then((res) => res.data);
+  },
 };
