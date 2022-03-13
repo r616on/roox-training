@@ -1,8 +1,15 @@
-import { SET_ITEMS, SET_REQUESTSTATUS } from "./actionTypes";
+import {
+  SET_ITEMS,
+  SET_PAGE,
+  SET_REQUESTSTATUS,
+  SET_TOTAL,
+} from "./actionTypes";
 import { ActionTypes, IinitialState } from "../interfaces";
 
 const initialState: IinitialState = {
   items: [],
+  page: 1,
+  total: 2,
   requestStatus: {
     loading: false,
     ok: false,
@@ -22,6 +29,10 @@ export default function itemsList(
         ...state,
         requestStatus: { ...action.payload },
       };
+    case SET_PAGE:
+      return { ...state, page: +action.payload };
+    case SET_TOTAL:
+      return { ...state, total: +action.payload };
     default:
       return state;
   }

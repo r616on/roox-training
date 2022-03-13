@@ -8,16 +8,17 @@ import "./style.scss";
 import PageTemplate from "../../templates/PageTemplate/PageTemplate";
 import { IItemCart } from "../../molecules/ItemCart/interfaces";
 import { AppStoreType } from "../../../redux/interfaces";
+import PaginationItem from "../../Atom/PaginationItem/PaginationItem";
 
 const ItemsList: FC = () => {
-  const items = useSelector((state: AppStoreType) => state.itemsList.items);
+  const { items, page } = useSelector((state: AppStoreType) => state.itemsList);
   const { loading, ok, error } = useSelector(
     (state: AppStoreType) => state.itemsList.requestStatus
   );
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getItems());
-  }, [dispatch]);
+  }, [dispatch, page]);
 
   useEffect(() => {
     error && message.error("Ошибка загрузки данных");
@@ -30,9 +31,12 @@ const ItemsList: FC = () => {
 
   return (
     <PageTemplate>
-      <Space wrap style={{ justifyContent: "center", width: "100%" }}>
-        {loading && <Spin size="large" tip="Loading..."></Spin>}
+      <PaginationItem className="Paginaton" />
 
+      <Space wrap style={{ justifyContent: "center", width: "100%" }}>
+        {loading && (
+          <Spin className="Spin" size="large" tip="Loading..."></Spin>
+        )}
         {ok &&
           items.map((item: IItemCart) => {
             return (
@@ -42,6 +46,7 @@ const ItemsList: FC = () => {
             );
           })}
       </Space>
+      <PaginationItem className="Paginaton" />
     </PageTemplate>
   );
 };

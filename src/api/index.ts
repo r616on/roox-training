@@ -5,8 +5,14 @@ const instanse = axios.create({
 });
 
 export const AppAPI = {
-  getItems() {
-    return instanse.get("api/people/").then((res) => res.data.results);
+  getItems(page: number) {
+    return instanse
+      .get("api/people/", {
+        params: {
+          page: page,
+        },
+      })
+      .then((res) => res.data);
   },
   getFullPeole(id: string) {
     return instanse.get(`api/people/${id}/`).then((res) => res.data);
