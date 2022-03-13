@@ -1,0 +1,15 @@
+.card_item {
+  margin-bottom: 6px;
+
+  &:last-child {
+    margin-bottom: 0px;
+  }
+}
+.CustomsContainerCenter {
+  justify-content: center;
+  width: 100%;
+}
+.CustomsContainer {
+  justify-content: space-between;
+  width: 100%;
+}

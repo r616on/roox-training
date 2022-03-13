@@ -26,4 +26,7 @@ export const AppAPI = {
       })
       .then((res) => res.data);
   },
+  getFullPlanet(id: string) {
+    return instanse.get(`api/planets/${id}/`).then((res) => res.data);
+  },
 };

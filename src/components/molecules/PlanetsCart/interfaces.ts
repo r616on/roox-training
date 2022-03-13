@@ -9,4 +9,6 @@ export interface IPlanetCart {
   surface_water?: string;
   population?: string;
   url?: string;
+  created?: string;
+  edited?: string;
 }
