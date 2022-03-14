@@ -1,4 +1,7 @@
 import axios from "axios";
+import { IItemCart } from "../components/molecules/ItemCart/interfaces";
+import { IPlanetCart } from "../components/molecules/PlanetsCart/interfaces";
+import { IpeopleResp, IplanetsResp } from "./interfaces";
 
 const instanse = axios.create({
   baseURL: "https://swapi.dev/",
@@ -7,7 +10,7 @@ const instanse = axios.create({
 export const AppAPI = {
   getItems(page: number) {
     return instanse
-      .get("api/people/", {
+      .get<IpeopleResp>("api/people/", {
         params: {
           page: page,
         },
@@ -15,11 +18,11 @@ export const AppAPI = {
       .then((res) => res.data);
   },
   getFullPeole(id: string) {
-    return instanse.get(`api/people/${id}/`).then((res) => res.data);
+    return instanse.get<IItemCart>(`api/people/${id}/`).then((res) => res.data);
   },
   getPlanets(page: number) {
     return instanse
-      .get("api/planets/", {
+      .get<IplanetsResp>("api/planets/", {
         params: {
           page: page,
         },
@@ -27,6 +30,11 @@ export const AppAPI = {
       .then((res) => res.data);
   },
   getFullPlanet(id: string) {
-    return instanse.get(`api/planets/${id}/`).then((res) => res.data);
+    return instanse
+      .get<IPlanetCart>(`api/planets/${id}/`)
+      .then((res) => res.data);
   },
 };
+// const rtt = () => async () => {
+//   let response = await AppAPI.getFullPeole("1");
+// };
